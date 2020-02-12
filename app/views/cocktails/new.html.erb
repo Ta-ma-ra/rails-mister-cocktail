@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6-offset-3">
+      <h1>Add a New Cocktail</h1>
+
+      <%= render 'form', cocktail: @cocktail %>
+
+      <br>
+
+      <%= link_to 'Show', @cocktail, class:'btn btn-secondary'  %> |
+      <%= link_to 'Back', cocktails_path, class:'btn btn-light'  %>
+    </div>
+  </div>
+</div>
