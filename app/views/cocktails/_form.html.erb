@@ -1,14 +1,10 @@
 <%= simple_form_for(@cocktail) do |f| %>
     <%= f.input :name %>
-    <% @cocktail.doses.each do |dose| %>
-    <%= f.association :ingredients%>
-    <input type="text" name="dose[description]" value="<%= dose.description %>">
 
-    <br>
-    <br>
+      <br>
+      <br>
 
-    <% end %>
-    <%= f.button :submit, class: 'btn btn-info' %>
+      <%= f.button :submit, class: 'btn btn-info' %>
 <% end %>
 
 

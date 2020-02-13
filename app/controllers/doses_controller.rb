@@ -1,5 +1,5 @@
 class DosesController < ApplicationController
-  before_action :set_cocktail
+  before_action :set_cocktail, only: [:new, :create, :update]
 
   def new
     @dose = Dose.new
@@ -8,9 +8,35 @@ class DosesController < ApplicationController
   def create
     @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
-    @dose.save!
+    if @dose.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
+  end
 
-    redirect_to cocktail_path(@cocktail)
+  def edit
+    @dose = Dose.find(params[:id])
+    @cocktail = @dose.cocktail
+  end
+
+  def update
+    @dose = Dose.find(params[:id])
+    # raise
+    if @dose.update(dose_params)
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @dose = Dose.find(params[:id])
+    @dose.destroy
+    respond_to do |format|
+      format.html { redirect_to cocktail_path notice: 'Dose was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

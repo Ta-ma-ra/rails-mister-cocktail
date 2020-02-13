@@ -1,28 +1,26 @@
-<div class="container">
-  <h1>Cocktails</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @cocktails.each do |cocktail| %>
-        <tr>
-          <td><%= cocktail.name %></td>
-          <td><%= link_to 'Show', cocktail, class:'btn btn-primary' %></td>
-          <td><%= link_to 'Edit', edit_cocktail_path(cocktail), class:'btn btn-light' %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <div class="links-to">
-    <%= link_to 'New Cocktail', new_cocktail_path, class:'btn btn-info' %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80);">
+  <div class="container">
+    <h1>One martini is alright, two is too many, three is not enough.</h1>
+    <p>– James Thurber</p>
+        <%= link_to 'New Cocktail', new_cocktail_path, class:'btn btn-info banner-button' %>
   </div>
+</div>
+
+<div class="container">
+  <div class="row">
+  <% @cocktails.each do |cocktail| %>
+      <div class="col-3">
+      <div class="cocktail-card"   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1573503163433-6459cd5ea30f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80)" colspan="4">
+        <%= cocktail.name %>
+            <%= link_to 'Show', cocktail, class:'btn btn-outline-light card-btn-edit' %>
+  </div>
+</div>
+  <% end %>
+
+
+  <div class="links-to text-center" px-8 id="button">
+  </div>
+</div>
+
 </div>
 

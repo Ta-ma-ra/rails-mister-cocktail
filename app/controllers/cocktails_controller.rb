@@ -28,9 +28,10 @@ class CocktailsController < ApplicationController
   def update
     # raise
     if @cocktail.update(cocktail_params)
+      @cocktail.save!
       redirect_to cocktail_path(@cocktail)
     else
-      render :edit
+      render :new
     end
   end
 

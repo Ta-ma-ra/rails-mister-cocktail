@@ -1,20 +1,42 @@
-<div class="container">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);">
+  <h1><%= @cocktail.name %></h1>
+</div>
 
-  <h2><%= @cocktail.name %></h2>
+<div class="show-container">
+
 
   <p>
     <strong>Ingredients:</strong>
   </p>
 
     <br>
+    <table>
+      <tbody>
+        <% @cocktail.doses.each do |dose| %>
+          <tr>
+            <td><%= dose.description%>  </td>
+            <td><%= dose.ingredient.name %>  </td>
+            <td><%= link_to "Edit", edit_cocktail_dose_path(@cocktail), class: 'btn btn-outline-primary ' %></td>
+            <td><%= link_to "Delete", dose_path(dose), method: :delete, class: 'btn btn-light'  %>
+          </tr>
+        <% end %>
 
+      </tbody>
+    </table>
   <ul>
-    <% @cocktail.doses.each do |dose| %>
-      <li><%= dose.description%> - <%= dose.ingredient.name %></li>
-    <% end %>
   </ul>
 
-  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-info'  %>
-  <%= link_to "Back to Cocktails", cocktails_path, class: 'btn btn-info'  %>
+  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-dark'  %>
+  <%= link_to "Back to Cocktails", cocktails_path, class: 'btn btn-dark'  %>
 
+
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
 </div>
