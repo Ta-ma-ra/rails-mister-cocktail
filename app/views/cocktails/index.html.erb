@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row">
   <% @cocktails.each do |cocktail| %>
-      <div class="col-3">
+      <div class="col-3 col-md-6 col-lg-8">
       <div class="cocktail-card"   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1573503163433-6459cd5ea30f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80)" colspan="4">
         <%= cocktail.name %>
             <%= link_to 'Details', cocktail, class:'btn btn-outline-light card-btn-edit' %>
