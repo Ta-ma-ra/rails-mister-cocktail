@@ -1,0 +1,13 @@
+<h1>Post a Review For <%= @cocktail.name %></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+      <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :content, placeholder: "Yummy" %>
+        <%= f.submit "Post Review", class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+</div>
