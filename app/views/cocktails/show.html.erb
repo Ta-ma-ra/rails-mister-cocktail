@@ -5,16 +5,16 @@
 <div class="show-container">
 
 
-  <p>
+  <h4>
     <strong>Ingredients:</strong>
-  </p>
+  </h4>
 
     <br>
     <table>
       <tbody>
         <% @cocktail.doses.each do |dose| %>
           <tr>
-            <td><%= dose.description%>  </td>
+            <td><%= dose.description%>:    </td>
             <td><%= dose.ingredient.name %>  </td>
             <td><%= link_to "Edit", edit_cocktail_dose_path(@cocktail), class: 'btn btn-outline-primary ' %></td>
             <td><%= link_to "Delete", dose_path(dose), method: :delete, class: 'btn btn-light'  %>
