@@ -5,8 +5,8 @@
 
       <%= simple_form_for([@cocktail, @dose]) do |f| %>
       <!-- doing this links the review to the cocktail -->
-        <%= f.input :description %>
         <%= f.association :ingredient %>
+        <%= f.input :description %>
         <%= f.submit class: 'btn btn-info' %>
       <% end %>
 
