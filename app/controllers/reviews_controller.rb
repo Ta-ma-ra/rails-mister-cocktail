@@ -15,10 +15,11 @@ class ReviewsController < ApplicationController
   private
 
   def set_cocktail
-    @cocktail = Cocktail.find(params[:format])
+    params
+    @cocktail = Cocktail.find(params[:cocktail_id])
   end
 
   def review_params
-    paramar.require(:review).permit(:content, :rating)
+    params.require(:review).permit(:content, :rating)
   end
 end

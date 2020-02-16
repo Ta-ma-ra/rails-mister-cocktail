@@ -23,11 +23,18 @@
 
       </tbody>
     </table>
+
+  <h4>
+    <strong>Reviews:</strong>
+  </h4>
   <ul>
+   <% @cocktail.reviews.each do |review| %>
+    <li> <%= review.content %> <%= review.rating %> </li>
+   <% end %>
   </ul>
 
   <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-dark'  %>
-  <%= link_to "Add a review", new_review_path(@cocktail), class: 'btn btn-dark'  %>
+  <%= link_to "Add a review", new_cocktail_review_path(@cocktail), class: 'btn btn-dark'  %>
   <%= link_to "Back to Cocktails", cocktails_path, class: 'btn btn-dark'  %>
 
 
