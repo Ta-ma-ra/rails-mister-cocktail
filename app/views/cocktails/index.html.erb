@@ -2,31 +2,30 @@
   <div class="container">
     <h1>One martini is alright, two is too many, three is not enough.</h1>
     <p>– James Thurber</p>
-        <%= link_to 'New Cocktail', new_cocktail_path, class:'btn btn-info banner-button' %>
+    <%= link_to 'New Cocktail', new_cocktail_path, class:'btn btn-info banner-button' %>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-  <% @cocktails.each do |cocktail| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <% if cocktail.photo %>
-            <div class="cocktail-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dky7toaov/image/upload/v1581874149/<%= cocktail.photo.key %>);">
-              <!-- the cloudinary url for an image never changes, except for the key. the key is stored with the image association and can be used to modify the url -->
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-12 col-md-6 col-lg-3">
+      <% if cocktail.photo %>
+      <div class="cocktail-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dky7toaov/image/upload/v1581874149/<%= cocktail.photo.key %>);">
+        <!-- the cloudinary url for an image never changes, except for the key. the key is stored with the image association and can be used to modify the url -->
         <% else %>
-            <div class="cocktail-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);">
-        <% end %>
-        <%= cocktail.name %>
-            <%= link_to 'Details', cocktail, class:'btn btn-outline-light card-btn-edit' %>
-            <%= link_to 'Edit', edit_cocktail_path(cocktail), class:'btn btn-outline-light card-btn-show' %>
+        <div class="cocktail-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);">
+          <% end %>
+          <%= cocktail.name %>
+          <%= link_to 'Details', cocktail, class:'btn btn-outline-light card-btn-edit' %>
+          <%= link_to 'Edit', edit_cocktail_path(cocktail), class:'btn btn-outline-light card-btn-show' %>
+        </div>
+      </div>
+      <% end %>
+
+
+      <div class="links-to text-center" px-8 id="button">
+      </div>
+    </div>
   </div>
-</div>
-  <% end %>
-
-
-  <div class="links-to text-center" px-8 id="button">
-  </div>
-</div>
-
-</div>
 
